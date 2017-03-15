@@ -39,6 +39,9 @@ If you're using rails, the railtie will automatically be loaded. The railtie wil
 
 ### Capistrano Deploys
 
+Install the binstubs with `bundle binstubs shunt_cache`, by default this will
+create the scripts in the `bin` directory.
+
 Assuming capistrano version 3 (nice in-sequence commands):
 
 ```
@@ -51,7 +54,9 @@ namespace :deploy do
       execute :rake, 'shunt_cache:shunt'
       sleep(10)
       sudo 'service myservice restart'
-      execute :rake, 'shunt_cache:wait_for_http', "URL=http://#{host}:4004/"
+      with url: "http://#{host}:4004/" do
+        execute 'bin/shunt_cache_wait_for_http'
+      end
       execute :rake, 'shunt_cache:unshunt'
     end
   end
