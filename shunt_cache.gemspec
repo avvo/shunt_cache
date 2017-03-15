@@ -6,8 +6,8 @@ require 'shunt_cache/version'
 Gem::Specification.new do |spec|
   spec.name          = "shunt_cache"
   spec.version       = ShuntCache::VERSION
-  spec.authors       = ["Jeff Ching"]
-  spec.email         = ["ching.jeff@gmail.com"]
+  spec.authors       = ["Jeff Ching", "Donald Plummer"]
+  spec.email         = ["ching.jeff@gmail.com", "dplummer@avvo.com"]
   spec.summary       = "Cache the site status in a cache"
   spec.description   = "Mark the site status in a cache"
   spec.homepage      = ""
